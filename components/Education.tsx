@@ -18,8 +18,8 @@ const Education = () => {
               <GraduationCap className="w-4 h-4 text-muted-foreground" />
             </div>
             <div>
-              <p className="text-sm font-medium text-foreground">University of Technology</p>
-              <p className="text-xs text-muted-foreground">Bachelor of Science in Computer Science • 2015 - 2019</p>
+              <p className="text-sm font-medium text-foreground">Marri laxman reddy institute of technology & management</p>
+              <p className="text-xs text-muted-foreground">Bachelor of Degree in Computer Science • 2021- 2025</p>
             </div>
           </div>
         </motion.div>
