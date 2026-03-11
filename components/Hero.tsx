@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="pt-16 pb-8 px-4  md:px-6 ">
+    <section className="pt-8 md:pt-14 pb-8 px-4  md:px-6 ">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,7 +16,7 @@ const Hero = () => {
           className="flex items-start justify-between"
         >
           <div className="flex-1">
-            <h1 className="text-xl md:text-5xl font-bold mb-3 tracking-tight">
+            <h1 className="text-2xl md:text-5xl font-bold mb-3 tracking-tight">
               Hi, I&apos;am Shivathmika
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">

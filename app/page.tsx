@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center mx-auto font-space  dark:bg-black dark:text-white">
      
-      <main className="flex min-h-screen w-full max-w-3xl flex-col  py-12 md:px-16 bg-white dark:bg-black ">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col  py-8 md:py-10 md:px-16 bg-white dark:bg-black ">
      
         <div className="w-full">
         <Hero />
