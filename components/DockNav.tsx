@@ -6,7 +6,7 @@ const dockItems = [
   { icon: Github, href: "https://github.com/Shivathmika20", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/y-shivathmika/", label: "LinkedIn" },
   { icon: Twitter, href: "https://x.com/_shivathmika", label: "X / Twitter" },
-  { icon: FileText, href: "#", label: "Resume" },
+
 ];
 
 const DockNav = () => {

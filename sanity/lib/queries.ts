@@ -7,3 +7,19 @@ export async function getExperience() {
       }
     `);
   }
+
+export async function getProjects() {
+    return client.fetch(`
+      *[_type == "projects"] |  order(order asc) {
+        _id, title, description, tags, githuburl,liveurl,order
+      }
+    `);
+  }
+
+  export async function getHackathons() {
+    return client.fetch(`
+      *[_type == "hackathons"] |  order(order asc) {
+        _id, title, description, location, date,award,liveurl,logo,order
+      }
+    `);
+  }

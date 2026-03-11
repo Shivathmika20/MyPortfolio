@@ -1,8 +1,9 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { projectId, dataset } from "@/sanity/env";
-import {schema} from '@/sanity/schema'
 import experience from "./sanity/schemas/experience";
+import project from "./sanity/schemas/project";
+import hackathon from "./sanity/schemas/hackathon";
 export default defineConfig({
   name: "default",
   title: "Portfolio",
@@ -11,6 +12,6 @@ export default defineConfig({
   plugins: [structureTool()],
   basePath: "/studio",
   schema:{
-    types:[experience]
+    types:[experience,project,hackathon]
   }
 });
