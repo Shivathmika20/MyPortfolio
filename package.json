@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint"
   },
+  
   "dependencies": {
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.2.0",
@@ -38,4 +39,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   }
+  
 }
