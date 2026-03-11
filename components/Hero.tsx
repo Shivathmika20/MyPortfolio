@@ -17,7 +17,7 @@ const Hero = () => {
         >
           <div className="flex-1">
             <h1 className="text-4xl  md:text-5xl font-bold mb-3 tracking-tight">
-              Hi, Iam Shivathmika
+              Hi, I&apos;am Shivathmika
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               Building clean, performant web experiences with modern tools.
