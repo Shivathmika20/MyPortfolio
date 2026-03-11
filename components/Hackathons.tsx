@@ -1,104 +1,107 @@
 'use client'
 import { motion } from "framer-motion";
-import { Trophy, Calendar, MapPin } from "lucide-react";
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import Link from "next/link";
+import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image";
+import type { Image as SanityImage } from "sanity";
 
-const hackathons = [
-  {
-    title: "HackMIT",
-    award: "1st Place — Best AI/ML Hack",
-    date: "Sep 2024",
-    location: "MIT, Cambridge",
-    description:
-      "Built an AI-powered accessibility tool that generates real-time audio descriptions for visually impaired users.",
-  },
-  {
-    title: "TreeHacks",
-    award: "Winner — Sustainability Track",
-    date: "Feb 2024",
-    location: "Stanford University",
-    description:
-      "Created a carbon footprint tracker with gamification elements to encourage eco-friendly habits.",
-  },
-  {
-    title: "CalHacks",
-    award: "Top 10 Finalist",
-    date: "Oct 2023",
-    location: "UC Berkeley",
-    description:
-      "Developed a peer-to-peer study platform with AI-matched study groups and shared whiteboards.",
-  },
-  {
-    title: "PennApps",
-    award: "Best Use of Cloud — AWS",
-    date: "Sep 2023",
-    location: "UPenn, Philadelphia",
-    description:
-      "Built a serverless event management platform with real-time notifications and smart scheduling.",
-  },
-];
 
-const Hackathons = () => {
+type Hackathon={
+  _id:string;
+  title:string;
+  logo?:SanityImage;
+  description:string;
+  location:string;
+  date:string;
+  award:string;
+  liveurl?:string;
+}
+
+
+const Hackathons = ({data}:{data:Hackathon[]}) => {
   return (
-    <section id="hackathons" className="py-12 px-6">
-      <div className="max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+    <section id="hackathons" className="py-10 px-6">
+    <div className="max-w-2xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-10"
         >
-          <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border mb-3">
+          <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-secondary text-secondary-foreground border border-border mb-3">
             Hackathons
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-            I like building things
+          <h2 className="text-2xl md:text-5xl font-bold text-foreground mb-2">
+          I like building things
           </h2>
-          <p className="text-sm text-muted-foreground max-w-md mx-auto">
-            i have participated in hackathons across the country, building creative solutions under pressure.
-          </p>
+          <p className="text-md text-muted-foreground max-w-md mx-auto">
+          I have participated in hackathons , building creative solutions under pressure.        </p>
         </motion.div>
-
-        <div className="space-y-4">
-          {hackathons.map((hack, i) => (
-            <motion.div
-              key={hack.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="rounded-lg border border-border bg-card p-5 hover:shadow-sm transition-shadow"
-            >
-              <div className="flex items-start justify-between gap-3 mb-2">
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground">
-                    {hack.title}
-                  </h3>
-                  <div className="flex items-center gap-1 mt-0.5">
-                    <Trophy className="w-3 h-3 text-amber-500" />
-                    <span className="text-xs font-medium text-foreground/80">
-                      {hack.award}
-                    </span>
-                  </div>
-                </div>
-                <div className="text-right shrink-0">
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Calendar className="w-3 h-3" />
-                    {hack.date}
-                  </div>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
-                    <MapPin className="w-3 h-3" />
-                    {hack.location}
-                  </div>
-                </div>
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-6 top-0 bottom-0 w-px bg-border" />
+              <div className="space-y-8">
+                {data.map((hack, i) => (
+                  <motion.div
+                    key={hack.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="relative pl-16"
+                  >
+                    {/* Timeline dot/icon */}
+                    <div className="absolute left-0 top-0 w-12 h-12 rounded-full overflow-hidden border border-border bg-background flex items-center justify-center shrink-0">
+                    <Image
+                      src={urlForImage(hack.logo!) as string}
+                      alt={hack.title}
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                    </div>
+                    {/* Content */}
+                    <div className="pt-1">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
+                        <Calendar className="w-3 h-3" />
+                        {hack.date}
+                      </div>
+                      <h3 className="text-base font-semibold text-foreground mb-0.5">
+                        {hack.title} 
+                        {hack.award && (
+                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 ml-2">
+                                 🏆 {hack.award}
+                           </span>
+                        )}
+                      </h3>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
+                        <MapPin className="w-3 h-3" />
+                        {hack.location} 
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {hack.description}
+                      </p>
+                      
+                    </div>
+                    <div className="flex items-center gap-3 mt-auto pt-2">  
+                      {hack.liveurl && (
+                        <Link
+                          href={hack.liveurl}
+                          target="main"
+                          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                         Showcase
+                        </Link>
+                      )}
+             
+                    </div>
+                    </motion.div>
+                ))}
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {hack.description}
-              </p>
-            </motion.div>
-          ))}
         </div>
-      </div>
+    </div>
     </section>
   );
 };
