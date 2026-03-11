@@ -19,8 +19,10 @@ const space = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Built with 💓",
+  title: "Shivathmika | Portfolio",
+  icons:{
+    icon: '/favicon.svg',
+ },
 };
 
 export default function RootLayout({
