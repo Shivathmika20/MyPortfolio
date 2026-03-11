@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="pt-16 pb-8 px-6">
+    <section className="pt-16 pb-8 px-4  md:px-6 ">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,7 +16,7 @@ const Hero = () => {
           className="flex items-start justify-between"
         >
           <div className="flex-1">
-            <h1 className="text-4xl  md:text-5xl font-bold mb-3 tracking-tight">
+            <h1 className="text-xl md:text-5xl font-bold mb-3 tracking-tight">
               Hi, I&apos;am Shivathmika
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -32,11 +32,12 @@ const Hero = () => {
           </div>
           <Image
             src={profileImg}
-            alt="John Doe"
-            className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-2 border-border ml-6 flex-shrink-0"
+            alt="shivathmika"
+            className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-2 border-border ml-4 flex-shrink-0"
           />
         </motion.div>
       </div>
+     
     </section>
   );
 };

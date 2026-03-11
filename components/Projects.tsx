@@ -14,8 +14,8 @@ type Project={
 
 const Projects = ({data}:{data:Project[]}) => {
   return (
-    <section className="py-12 px-6">
-      <div className="max-w-2xl mx-auto">
+    <section className="py-12  px-4 md:px-6 ">
+      <div className=" mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

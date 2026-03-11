@@ -21,7 +21,7 @@ type Hackathon={
 
 const Hackathons = ({data}:{data:Hackathon[]}) => {
   return (
-    <section id="hackathons" className="py-10 px-6">
+    <section id="hackathons" className="py-10  px-4 md:px-6 ">
     <div className="max-w-2xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,8 @@ const Hackathons = ({data}:{data:Hackathon[]}) => {
           <p className="text-md text-muted-foreground max-w-md mx-auto">
           I have participated in hackathons , building creative solutions under pressure.        </p>
         </motion.div>
-        <div className="relative">
+        <div className="relative ">
+       
           {/* Timeline line */}
           <div className="absolute left-6 top-0 bottom-0 w-px bg-border" />
               <div className="space-y-8">
@@ -54,12 +55,12 @@ const Hackathons = ({data}:{data:Hackathon[]}) => {
                   >
                     {/* Timeline dot/icon */}
                     <div className="absolute left-0 top-0 w-12 h-12 rounded-full overflow-hidden border border-border bg-background flex items-center justify-center shrink-0">
-                    <Image
-                      src={urlForImage(hack.logo!) as string}
-                      alt={hack.title}
-                      fill
-                      className="object-cover rounded-full"
-                    />
+                      <Image
+                        src={urlForImage(hack.logo!) as string}
+                        alt={hack.title}
+                        fill
+                        className="object-cover rounded-full"
+                      />
                     </div>
                     {/* Content */}
                     <div className="pt-1">
@@ -67,14 +68,17 @@ const Hackathons = ({data}:{data:Hackathon[]}) => {
                         <Calendar className="w-3 h-3" />
                         {hack.date}
                       </div>
-                      <h3 className="text-base font-semibold text-foreground mb-0.5">
-                        {hack.title} 
-                        {hack.award && (
-                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 ml-2">
-                                 🏆 {hack.award}
-                           </span>
-                        )}
-                      </h3>
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2 mb-0.5">
+                            <h3 className="text-base font-semibold text-foreground">
+                              {hack.title}
+                            </h3>
+                            {hack.award && (
+                              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 w-fit">
+                                🏆 {hack.award}
+                              </span>
+                            )}
+                      </div>
+                      
                       <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
                         <MapPin className="w-3 h-3" />
                         {hack.location} 
@@ -101,6 +105,7 @@ const Hackathons = ({data}:{data:Hackathon[]}) => {
                 ))}
               </div>
         </div>
+       
     </div>
     </section>
   );

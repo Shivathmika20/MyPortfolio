@@ -12,10 +12,13 @@ export default async function Home() {
   const experiences = await getExperience();
   const projects= await getProjects();
   const hackathons=await getHackathons();
+
   return (
-    <div className="flex min-h-screen items-center justify-center mx-auto font-space dark:bg-black dark:text-white">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-12 px-16 bg-white dark:bg-black sm:items-start">
-        <div>
+    <div className="flex min-h-screen items-center justify-center mx-auto font-space  dark:bg-black dark:text-white">
+     
+      <main className="flex min-h-screen w-full max-w-3xl flex-col  py-12 md:px-16 bg-white dark:bg-black ">
+     
+        <div className="w-full">
         <Hero />
         <About />
         <Experience data={experiences} />

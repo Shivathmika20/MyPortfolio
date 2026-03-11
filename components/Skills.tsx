@@ -27,7 +27,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section className="py-8 px-6">
+    <section className="py-8 px-4 md:px-6 ">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-lg font-semibold text-foreground mb-6">Skills</h2>
-          <div className="grid grid-cols-2 gap-3 auto-rows-fr">
+          <div className="grid grid-cols-1  md:grid-cols-2 gap-3 auto-rows-fr ">
             {skillCategories.map((category) => (
               <div
                 key={category.name}

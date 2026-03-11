@@ -37,8 +37,9 @@ const ExperienceItem = ({ exp }: { exp: Experience }) => {
             />
           </div>
           <p className="text-xs text-muted-foreground">{exp.role}</p>
+          <p className="text-xs text-muted-foreground sm:hidden">{exp.period}</p>
         </div>
-        <p className="text-xs text-muted-foreground whitespace-nowrap">{exp.period}</p>
+        <p className="text-xs text-muted-foreground whitespace-nowrap hidden sm:block">{exp.period}</p>
       </div>
       <AnimatePresence>
         {isOpen && (
@@ -65,7 +66,7 @@ const ExperienceItem = ({ exp }: { exp: Experience }) => {
 
 const Experience = ({ data }: { data: Experience[] }) => {  // ← accept data as prop
   return (
-    <section className="px-6">
+    <section className=" px-4 md:px-6 ">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
